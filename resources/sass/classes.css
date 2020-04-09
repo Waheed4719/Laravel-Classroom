@@ -1,0 +1,56 @@
+.classes {
+  font-family: open sans, Montserrat, sans-serif;
+  text-align: center;
+  padding: 20px 5%;
+  width: 100%;
+}
+.classes .classCode {
+  display: flex;
+  flex-direction: row;
+  margin: 15px auto;
+  width: fit-content;
+  max-width: 100%;
+}
+.classes .classCode p {
+  margin: 0px 15px;
+  line-height: 35px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.classes .classCode input {
+  width: 220px;
+  padding: 2px 15px;
+  border: 1px solid gainsboro;
+  line-height: 30px;
+}
+.classes button {
+  border: none;
+  margin: auto;
+  display: block;
+  width: 200px;
+  height: 35px;
+  line-height: 35px;
+  color: white;
+  padding: 0px;
+  background-color: #1890ff;
+  transition: all 0.2s ease-in-out;
+}
+.classes button:hover {
+  color: white;
+  background-color: #58adfb;
+}
+.classes .clss {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: left;
+}
+.classes .clss .classCard {
+  margin: 15px 15px;
+}
+@media only screen and (max-width: 450px) {
+  .clss {
+    justify-content: center !important;
+  }
+}

@@ -1,0 +1,138 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dadce0;
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0px;
+  border-radius: 10px;
+}
+.post .info {
+  min-height: 100px;
+  width: 100%;
+  border-radius: 10px;
+  border-bottom: 1px solid #dadce0;
+  display: flex;
+  flex-direction: column;
+}
+.post .info .profile {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 24px 0px 24px;
+}
+.post .info .profile .avatar {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  border-radius: 1000px;
+  background-size: contain;
+  border: 2px solid royalblue;
+}
+.post .info .profile .nameDate {
+  height: 40px;
+  padding-left: 15px;
+}
+.post .info .profile .nameDate p {
+  margin: 0px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+}
+.post .info .profile .nameDate p:nth-of-type(2) {
+  font-family: Roboto, Open sans, Montserrat;
+  color: lightslategray;
+  font-size: 12px;
+}
+.post .info .profile .menuIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 1000px;
+}
+.post .info .profile .menuIcon:hover {
+  background-color: gainsboro;
+  border: 1px solid gainsboro;
+  border-radius: 1000px;
+}
+.post .info .profile .menuIcon div,
+.post .info .profile .menuIcon:before,
+.post .info .profile .menuIcon:after {
+  display: block;
+  content: "";
+  margin: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 1000px;
+  background-color: darkslategray;
+}
+.post .info .content {
+  padding: 12px 24px;
+}
+.post .info .content p {
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+.post .inputSection {
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  border-bottom: 1px solid lavender;
+}
+.post .inputSection .innerInput {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 24px;
+}
+.post .inputSection .innerInput .avatar {
+  height: 40px;
+  width: 40px;
+  background-size: contain;
+  line-height: 40px;
+  vertical-align: middle;
+  border-radius: 1000px;
+  border: 1px solid gainsboro;
+}
+.post .inputSection .innerInput .inputHolder {
+  border-radius: 1000px;
+  border: 1px solid gainsboro;
+  padding: 9px 10px 9px 16px;
+  height: 40px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  flex: 10;
+  justify-content: space-between;
+  align-items: center;
+}
+.post .inputSection .innerInput .inputHolder input {
+  width: 93%;
+  border: none;
+  vertical-align: middle;
+  line-height: 20px;
+}
+.post .inputSection .innerInput .inputHolder input:focus {
+  border: none;
+  outline: none;
+}
+.post .inputSection .innerInput .inputHolder .arrow {
+  height: 32px;
+  width: 32px;
+  border-radius: 100px;
+  background-repeat: no-repeat;
+  transform: rotate(90deg);
+  background-size: 60%;
+  margin-right: 0px;
+  background-position: center;
+}
+.post .inputSection .innerInput .inputHolder .arrow:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}

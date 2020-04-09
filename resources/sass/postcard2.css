@@ -1,0 +1,73 @@
+.postCard {
+  text-align: left;
+  height: auto;
+  width: 500px;
+  margin: 20px auto;
+  max-width: 100%;
+  box-shadow: 2px 2px 5px lavender;
+  border: 1px solid gainsboro;
+  transition: all 0.5s ease-in-out;
+}
+.postCard:hover {
+  transform: scale(1.05);
+}
+.postCard .card-title {
+  width: 100%;
+  height: 30px;
+  text-align: left;
+  line-height: 30px;
+  padding: 0px 5%;
+  margin-bottom: 0px;
+  background-color: #e9ebee;
+  color: darkslategray;
+  font-weight: bold;
+}
+.postCard .card-title p {
+  margin-bottom: 0px;
+}
+.postCard .card-body {
+  padding: 5px 5% 10px 5%;
+  max-width: 100%;
+  padding-top: 10px;
+}
+.postCard .card-body .identity {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.postCard .card-body .identity .info {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+}
+.postCard .card-body .identity div,
+.postCard .card-body .identity img {
+  width: 40px;
+  max-width: 40px;
+  height: 40px;
+  border-radius: 1000;
+}
+.postCard .card-body .identity .info p {
+  width: fit-content;
+  margin: 0px 15px;
+  display: block;
+  font-weight: bold;
+}
+.postCard .card-body > img,
+.postCard .card-body > iframe {
+  margin: 5px 0px;
+  width: 100%;
+  max-width: 100%;
+}
+.postCard .card-body iframe {
+  height: 250px;
+}
+.postCard .card-body p {
+  width: fit-content;
+  margin-bottom: 0px;
+}

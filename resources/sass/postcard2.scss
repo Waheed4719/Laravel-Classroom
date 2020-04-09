@@ -1,0 +1,80 @@
+.postCard{
+    text-align: left;
+    height: auto;
+    width: 500px;
+    margin: 20px auto;
+    max-width: 100%;
+    box-shadow: 2px 2px 5px lavender;
+    border:1px solid gainsboro;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
+    .card-title{
+        width: 100%;
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        padding: 0px 5%;
+        margin-bottom: 0px;
+        background-color: #e9ebee;
+        color: darkslategray;
+        font-weight: bold;
+        p{
+            margin-bottom: 0px;
+        }
+    }
+    .card-body{
+        padding: 5px 5% 10px 5%;
+        max-width: 100%;
+        padding-top: 10px;
+        .identity{ 
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            width:100%;
+            max-width: 100%;
+            
+            margin-bottom: 20px;
+            
+        
+        .info{
+            
+            margin-left: 5px;
+            display:flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            
+        }
+        div, img{
+            width: 40px;
+            max-width: 40px;
+            height: 40px;
+            border-radius: 1000;
+        }
+        .info p{
+            width: fit-content;
+            margin: 0px 15px;
+            display:block;
+            font-weight: bold;
+        }
+    }
+
+        >img, >iframe{
+            margin: 5px 0px;
+            width: 100%;
+            max-width: 100%;
+            
+        }
+        iframe{
+            height: 250px;
+        }
+        p{
+            width: fit-content;
+            margin-bottom:0px;
+            
+        }
+    }
+
+}

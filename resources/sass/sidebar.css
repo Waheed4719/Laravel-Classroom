@@ -1,0 +1,91 @@
+.sidebar {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 10;
+  position: fixed;
+  z-index: 3;
+  width: 340px;
+  top: 0;
+  background-color: white;
+  border-right: 1px solid gainsboro;
+  transform: translateX(-120%);
+  transition: transform 0.6s ease-in-out;
+}
+.sidebar .nav {
+  text-align: right;
+  margin: 5px 10px;
+}
+.sidebar .nav .ham-menu {
+  display: block;
+  padding: 2px;
+  margin-left: auto;
+  margin-right: 5px;
+}
+.sidebar .nav .ham-menu div,
+.sidebar .nav .ham-menu::before,
+.sidebar .nav .ham-menu::after {
+  display: block;
+  content: "";
+  background-color: darkslategray;
+  width: 25px;
+  height: 2px;
+  margin: 5px;
+  transition: transform 0.6s ease-in-out;
+}
+.sidebar .nav .ham-menu div {
+  transform: scale(0);
+}
+.sidebar .nav .ham-menu:before {
+  transform: translateY(7px) rotate(-135deg);
+}
+.sidebar .nav .ham-menu:after {
+  transform: translateY(-7px) rotate(135deg);
+}
+.sidebar .search-bar {
+  text-align: center;
+  vertical-align: middle;
+}
+.sidebar .search-bar input {
+  color: gainsboro;
+  padding: 5px 10px 5px 10px;
+  height: 40px;
+  width: 75%;
+  border-radius: 3px;
+  background-color: mediumslateblue;
+  border: none;
+  outline: none;
+  margin: 10px 10px 10px 10px;
+  transition: transform 0.6s ease-in-out;
+  transform: scale(0);
+}
+.sidebar .search-bar svg {
+  transition: transform 0.6s ease-in-out;
+  transform: scale(1);
+  font-size: 20px;
+  margin: auto;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.sidebar .search-bar input::placeholder {
+  color: gainsboro;
+}
+.sidebar .enrolled {
+  padding: 15px 5%;
+}
+.sidebar .enrolled p {
+  color: darkslategray;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.sidebar .enrolled ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.sidebar .enrolled ul li {
+  width: 100%;
+  padding: 10px 0px;
+  color: darkslategray;
+  font-weight: 500;
+}

@@ -1,0 +1,113 @@
+.classCard{
+    text-align: left;
+    position: relative;
+    width: 300px;
+    height:fit-content;
+    max-width: 100%;
+    margin:auto;
+    border-radius: 9px;
+    margin: 20px auto;
+    
+    .cover{
+        // background-size: cover;
+        background-repeat: no-repeat;
+        height: 100px;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        padding:20px 5% 5px 5%;
+        position: relative;
+        
+        p{
+            position: relative;
+            color: white;
+            font-weight: 400;
+            z-index: 2;
+            width: fit-content;
+            margin:0px;
+            line-height: 1.75rem;
+            font-size: 1.375rem;
+            text-transform: uppercase;
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+        p:nth-of-type(n+2){
+            font-size: 11px;
+            text-transform: none;
+            line-height: 1.25rem;
+        }
+        p:nth-of-type(3){
+            padding-top:2px;
+        }
+        .avatar{
+            right:20px;
+            bottom: -37.5px;
+            height: 75px;
+            width: 75px;
+            border-radius: 1000px;
+            position: absolute;
+            background-size: contain;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png');
+    
+        }
+    }
+    
+    .desc{
+        height: 150px;
+        border: 1px solid gainsboro;
+        border-bottom:none;
+        border-top:none;
+    }
+    .resc{
+        height: 50px;
+        border: 1px solid #e1e3e6;
+        border-bottom-left-radius: 9px;
+        border-bottom-right-radius: 9px;
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        a{
+            text-decoration: none;
+            color: dimgray;
+            margin: 0px;
+        }
+        .r-icon{
+            height: 100% !important;
+            width: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 100%;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                border-radius: 1000px;
+                background-color: lavenderblush;
+            }
+            svg{
+                
+                margin:auto;
+            }
+        }
+    }
+    
+    
+}
+
+@media only screen and (max-width:712px){
+    .classCard{
+        .cover{
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 110px;
+            p:nth-of-type(3){
+                padding-top:8px;
+            }
+        }
+        .desc,.avatar,.resc{
+            display:none;
+        }
+    }
+}

@@ -1,0 +1,92 @@
+.postBar {
+  width: 100%;
+  min-height: 70px;
+  max-height: 100%;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  max-width: 100%;
+  min-width: 100%;
+  margin: 20px 0px 10px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 24px;
+  transition: all 0.5s ease-in-out;
+}
+.postBar p {
+  text-align: left;
+  color: lightslategray;
+  line-height: 40px;
+  margin: 0px;
+  margin-left: 24px;
+  width: 100%;
+}
+.postBar p:hover {
+  color: royalblue;
+}
+.postBar .avatar {
+  min-width: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  border-radius: 1000px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid gainsboro;
+}
+.postBar textarea {
+  display: none;
+  border: none;
+  width: 92%;
+  height: 100px;
+  max-height: auto;
+  min-height: 24px;
+  transition: all 0.5s ease-in-out;
+  max-height: auto;
+  box-sizing: content-box;
+  overflow-y: visible;
+  overflow-x: hidden;
+  resize: none;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.postBar textarea:focus {
+  border: none;
+  padding: 24px 24px;
+  outline: none;
+  color: black;
+  background-color: #f8f9fa;
+}
+.postBar .btns {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 100%;
+  width: 100%;
+  padding-top: 10px;
+}
+.postBar .btns .postCancelGrp {
+  display: flex;
+  flex-direction: row;
+}
+.postBar .btns .btn-outline:nth-of-type(1) {
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+  width: 100px;
+}
+.postBar .btns .btn-outline {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  width: 70px;
+  margin: 5px;
+  border: 1px solid gainsboro;
+  border-radius: 6px;
+}
+@media only screen and (max-width: 450px) {
+  .postBar {
+    padding-top: 15px !important;
+  }
+}

@@ -1,0 +1,111 @@
+.singleClass {
+  text-align: center;
+  padding: 15px 5%;
+  height: 1200px;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.singleClass .coverImage {
+  position: relative;
+  background-size: cover;
+  min-height: 240px;
+  width: 1000px;
+  max-width: 100%;
+  margin: 30px auto 0px auto;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: column;
+  z-index: 2;
+  transition: all 0.4s ease-in-out;
+}
+.singleClass .coverImage .title {
+  padding: 24px;
+}
+.singleClass .coverImage .title h1 {
+  color: white;
+}
+.singleClass .coverImage .title p {
+  color: white;
+  font-size: 1.235rem;
+}
+.singleClass .coverImage .caret {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+}
+.singleClass .coverImage .caret img {
+  width: 22px;
+  height: 14px;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 1000px;
+}
+.singleClass .coverImage .caret img:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 30%;
+}
+.singleClass .roomInfo {
+  background-color: white;
+  display: none;
+  min-height: 60px;
+  width: 1000px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  border: 1px solid gainsboro;
+  transition: all 0.4s ease-in-out;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.singleClass .roomInfo p {
+  margin-bottom: 0px;
+}
+.singleClass .divRow {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  max-width: 100%;
+  height: 100%;
+  justify-content: center;
+  margin: auto;
+  flex-flow: wrap;
+}
+.singleClass .divRow aside {
+  display: flex;
+  flex: 3;
+  min-height: 100%;
+  margin: 20px 30px 20px 0px;
+}
+.singleClass .divRow .posts {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  height: auto;
+  margin: 0px;
+  height: auto;
+  min-width: 60%;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 700px) {
+  .coverImage {
+    margin-top: 0px !important;
+    flex-direction: column;
+    flex-flow: wrap;
+  }
+  .divRow aside,
+  .divRow .todoAside {
+    display: none !important;
+  }
+}

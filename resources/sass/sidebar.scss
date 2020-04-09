@@ -1,0 +1,113 @@
+.sidebar{
+    min-height:100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 10;
+    position: fixed;
+    z-index:3;
+    width: 340px;
+    top:0;
+    // background-color: #1d4187;
+    background-color: white;
+    border-right: 1px solid gainsboro;
+    // background-color: darkslategray;
+    transform: translateX(-120%);
+    transition: transform .6s ease-in-out;
+
+
+    .nav{
+        text-align: right;
+        margin: 5px 10px;
+        .ham-menu{
+            display:block;
+            padding: 2px;
+            margin-left: auto;
+            margin-right:5px;
+            div,
+            &::before,
+            &::after{
+                display:block;
+                content: '';
+                // background-color: white;
+                background-color: darkslategray;
+                width: 25px;
+                height:2px;
+                margin: 5px;
+                transition: transform 0.6s ease-in-out;
+            }
+            div{
+                transform: scale(0);
+            }
+            &:before{
+                    transform: translateY(7px) rotate(-135deg);
+            }
+            &:after {
+                transform: translateY(-7px) rotate(135deg);
+            }
+
+        }
+    
+    }
+
+  
+        
+
+    
+
+    .search-bar{
+        text-align: center;
+        vertical-align: middle;
+        input{
+            color: gainsboro;
+            padding: 5px 10px 5px 10px;
+            height:40px;
+            width: 75%;
+            border-radius: 3px;
+            background-color: mediumslateblue;
+            border:none;
+            outline:none;
+            margin: 10px 10px 10px 10px;
+            transition: transform 0.6s ease-in-out;
+            transform :scale(0)
+        }
+        svg{
+            transition: transform 0.6s ease-in-out;
+            transform: scale(1);
+            font-size: 20px;
+            margin: auto;
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+            input::placeholder{
+                color: gainsboro;
+            }
+
+
+    }
+    .enrolled{
+        padding: 15px 5%;
+        p{
+            // color: white;
+            color: darkslategray;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        ul{
+            list-style-type: none;
+            padding-left:0px;
+            li{
+                width:100%;
+                padding: 10px 0px;
+                // color: white;
+                color: darkslategray;
+                font-weight: 500;
+            }
+        }
+    }
+        
+}
+
+@media only screen and (max-width: 600px){
+
+}
