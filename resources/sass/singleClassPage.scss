@@ -6,6 +6,23 @@
     max-height: 100%;
     display:flex;
     flex-direction: column;
+
+    .section{
+        p{
+            color: darkslateblue;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+        p:nth-child(1){
+            color: cornflowerblue;
+            border-bottom: medium solid dodgerblue;
+        }
+        
+    }
+
+
     .coverImage{
         position: relative;
         background-size: cover;

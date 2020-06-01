@@ -5,30 +5,41 @@ import {PaperClipOutlined, UploadOutlined} from '@ant-design/icons'
 import { Menu, Dropdown, message, Button } from 'antd';
 import Upload from './Upload'
 import Axios from 'axios';
+import { Editor } from '@tinymce/tinymce-react';
+
+
 function PostBar(props) {
     const [post, setPost] = useState('')
     const [img, setImg] = useState({})
+    var edit = document.querySelector('.editor')
+    var placeholder = document.querySelector('.ph')
 
-
-  
+    
 
 function PostBarToggler(){
     var postBar = document.querySelector('.postBar')
     var placeholder = document.querySelector('.ph')
     var avatar = document.querySelector('.av')
-    var textArea = document.querySelector('textarea')
     var btns = document.querySelector('.btns')
     var antBtn = document.querySelector('.ant-btn')
+    var edit = document.querySelector('.editor')
     
+    if(edit && placeholder.style.display !== "none"){
+         edit.style.display="none"
+    }
+    else{
+        edit.style.display="block"
+    }
+  
     function open(){
+        
         placeholder.style.display="none"
         avatar.style.display="none"
-        textArea.style.display="block"
-        textArea.style.marginLeft="0px"
-        textArea.style.float="left"
+        edit.style.display="block"
+        edit.style.width ="100%"
         postBar.style.padding="24px"
         postBar.style.flexDirection="column"
-        postBar.style.height="200px"
+        postBar.style.height="300px"
         postBar.style.width="120px"
         btns.style.display="flex"
     }
@@ -37,20 +48,19 @@ function PostBarToggler(){
         var postBar = document.querySelector('.postBar')
         var placeholder = document.querySelector('.ph')
         var avatar = document.querySelector('.av')
-        var textArea = document.querySelector('textarea')
+        var textArea = document.querySelector('.TA')
         var btns = document.querySelector('.btns')
         var antBtn = document.querySelector('.ant-btn')
 
         placeholder.style.display="block"
         avatar.style.display="block"
-        textArea.style.display="none"
+        edit.style.display="none"
         postBar.style.height=""
         postBar.style.padding=""
         postBar.style.flexDirection=""
         postBar.style.alignItems=""
         postBar.style.backgrounColor="red"
         btns.style.display=""
-        // antBtn.style.display="none"
     }
 
     document.addEventListener('click',(e)=>{
@@ -66,22 +76,13 @@ function PostBarToggler(){
       close: close
   }
 
-
-    
 }
 
     useEffect(()=>{
         PostBarToggler()
     },[])
 
-    const cancel=(e)=>{
-        e.preventDefault()
-        console.log('clicked')
-    
-    var textArea = document.querySelector('textarea')
-    textArea.value = ""
- 
-    }
+   
 
     const menu = (
         <Menu>
@@ -97,13 +98,16 @@ function PostBarToggler(){
         </Menu>
       );
 
+     const handleEditorChange = (content, editor) => {
+        console.log( content)
+        setPost(content)
+      }
+    
 
 
 
     const submitHandler=(e)=>{
           e.preventDefault()
-          e.target.value=""  
-          console.log(post)
           const form = new FormData()
           form.append('post',post)
           form.append('class_id',props.class_id)
@@ -111,26 +115,47 @@ function PostBarToggler(){
           .then(savedPost=>{
             message.success('Successfully Posted')
             props.postFunction()  
-            console.log(savedPost)
             setPost('')
             let func = PostBarToggler()
             func.close()
             })
           .catch(error=>console.log(error.response))
       }
+
     return (
         <div className="postBar">
       
             <div className='avatar av'  style={{backgroundImage: "url("+ prof +")"}}></div>
-            <p className="ph">Share something with your class</p>
-            <textarea placeholder="Share something with your class" value={post} onChange={(e)=>setPost(e.target.value)}/>
+             <p className="ph">Share something with your class</p> 
+           <div className="editor">
+           <Editor
+            apiKey="ovfon26lvler8sv8l1motzvleku3ydjmmfi3vdhg20zs7va2"
+            init={{
+            height: 200,
+            width: "100%",
+            placeholder: "Ask a question or post an update...",
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+                'formatselect | bold italic forecolor backcolor | \
+                alignleft aligncenter alignright alignjustify | \
+                bullist numlist outdent indent | removeformat | image | help'
+            }}
+            onEditorChange={handleEditorChange}
+            />
+           </div>
+          
             <div className="btns">
             <Dropdown overlay={menu} trigger={['click']}>
             <a onClick={e => e.preventDefault()} className="btn-outline" style={{display:"flex",alignItems:"center",justifyContent:"center"}} >
                 <PaperClipOutlined style={{  padding:'0px 3px' ,fontSize: '16px', color: '#08c' }} />Add</a>
             </Dropdown>
                 <div className="postCancelGrp">
-                <a className="btn-outline cancel" onClick={(e)=>cancel(e)}>Cancel</a><a onClick={(e)=>submitHandler(e)} className="btn-outline" >Post</a>
+                <a className="btn-outline cancel" >Cancel</a><a onClick={(e)=>submitHandler(e)} className="btn-outline" >Post</a>
                 </div>
             
             </div>

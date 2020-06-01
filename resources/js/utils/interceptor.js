@@ -19,8 +19,7 @@ axios.interceptors.response.use((response) => {
         originalRequest._retry = true;
         const ftoken = localStorage.getItem('faculty_token')
         const token = localStorage.getItem('auth_token')
-        console.log(ftoken)
-        console.log(token)
+      
         if(localStorage.getItem('auth_token')!==null){
             console.log(localStorage.getItem('auth_token'))
             return axios.get('/api/refreshToken')
@@ -37,10 +36,8 @@ axios.interceptors.response.use((response) => {
 
         
         else if(localStorage.getItem('faculty_token')!==null){
-            console.log(localStorage.getItem('faculty_token'))
             return axios.get('/api/faculty/refreshToken')
             .then(res => {
-                console.log(res.data)
                 if (res.status === 201 || res.status === 200) {
                     localStorage.setItem('faculty_token','Bearer ' + res.data.token);
                     axios.defaults.headers.common['Authorization'] = localStorage.getItem('faculty_token');

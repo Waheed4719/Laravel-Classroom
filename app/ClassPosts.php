@@ -14,7 +14,7 @@ class ClassPosts extends Model
     
 
     public function faculty(){
-        return $this->belongsto('App\Faculty','user_id');
+        return $this->belongsto('App\User','user_id');
     }
 
     public function user(){

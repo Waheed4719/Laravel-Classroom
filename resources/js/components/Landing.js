@@ -8,6 +8,8 @@ function Landing() {
         <div className="landing">
            
         <h1>This is the landing page</h1>
+
+        <h3>Laravel Classroom</h3>
       
             
         </div>

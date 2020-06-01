@@ -35,6 +35,9 @@
     color: darkslategray;
     text-decoration: none;
 }
+.plus{
+    font-size: 30px !important;
+}
 a:nth-of-type(n+3){
     display: block;
     float: right;
@@ -68,6 +71,15 @@ a:nth-of-type(3){
     margin: 0px 30px;
     cursor: pointer;
 }
+
+}
+.ant-modal{
+    input{
+        width: 220px;
+        padding: 2px 15px;
+        border: 1px solid gainsboro;
+        line-height: 30px;
+    }
 
 }
 

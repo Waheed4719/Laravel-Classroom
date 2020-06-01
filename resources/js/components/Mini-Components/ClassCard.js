@@ -2,14 +2,14 @@ import React,{useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import './../../../sass/classcard.scss'
 import scape from './../../assets/Img_1.png'
+import backdrop from './../../assets/backdrop.jpg'
 import {Popover} from 'antd'
 import {FolderOutlined, LaptopOutlined } from '@ant-design/icons'
 
 function ClassCard(props) {
-    console.log(props.id)
     return (
         <div className="classCard" >
-           <div className="cover" style={{backgroundImage:"url("+scape+")"}}>
+           <div className="cover" style={{backgroundImage:"url("+backdrop+")"}}>
                 <p><Link to={"/classes/"+props.id}>{props.title}</Link></p>
                 <p>Summer 2020</p>
                 <p>{props.faculty}</p>

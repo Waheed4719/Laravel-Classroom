@@ -30,8 +30,7 @@ useEffect(()=>{
     nameInput.addEventListener('keyup',()=>{
         console.log(nameInput.value)
         if(nameInput.value === ''){
-            console.log(nameInput.value)
-            console.log('hi')
+          
             nameInput.style.border = "1px solid red"
             nameInput.parentElement.querySelector('p').innerHTML = " email field cannot be empty"
             nameInput.parentElement.querySelector('p').style.visibility = "visible"

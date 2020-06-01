@@ -1,27 +1,28 @@
 import React, { useState,useEffect } from 'react'
 import {useSelector,useDispatch} from 'react-redux'
-import {Link, Redirect} from 'react-router-dom'
+import {Link, Redirect, useHistory} from 'react-router-dom'
 import './../../../sass/faculty_dashboard.scss'
 import Axios from 'axios'
 import ClassCard from '../Mini-Components/ClassCard'
-import { message } from 'antd'
+import { message, Modal, Dropdown } from 'antd'
+import {create_class} from './../../actions/classActions'
 
 function Dashboard() {
     const fac = useSelector(state=>state.fac)
     const [ className,setClassName ] = useState('')
     const [ classes, setClasses ] = useState([])
-    
-    
+    const [ visible, setVisible ] = useState(false)
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const clss = useSelector(state=>state.cls)
+
     useEffect(() => {
         fetchApi()
-        
-        
     }, [])
 
     function fetchApi(){
         Axios.get('api/classes')
         .then(classes=>{
-            console.log(classes.data.obj)
             setClasses(classes.data.obj)
         })
         .catch(error=>console.log(error))
@@ -31,23 +32,25 @@ function Dashboard() {
         e.preventDefault()
         const form = new FormData
         form.append('name',className)
-        console.log(form)
-        Axios.post('api/classes',form)
-        .then(obj=>{
-            console.log(obj)
-            message.success("Class created successfully")
-            fetchApi()
-        })
-        .catch(error=>{
-            console.log(error.response.headers)
-            console.log(error.response)
-            console.log(error.response.data)
-        })
+        dispatch(create_class(form, history))
+        setTimeout(()=>{
+        fetchApi()
+        },[500])
+        
     }
     const inputHandler = (e) =>{
         e.preventDefault()
         setClassName(e.target.value)
     }
+
+    function handleOk(e){
+        setVisible(false)
+    }
+
+    function handleCancel(){
+        setVisible(false)
+    }
+
 
     var cls = ""
     if(classes){
@@ -59,6 +62,8 @@ function Dashboard() {
 
     return (
         <div className="dashboard p-2">
+
+     
          <h1>Create a Class</h1>
         <form onSubmit={(e)=>Submit(e)}>
             <label>Class Name</label> <input onChange={(e)=>inputHandler(e)} name="className" placeholder="Class Name" />

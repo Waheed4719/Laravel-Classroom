@@ -14,7 +14,6 @@ function Classes() {
     const [loading, setLoading] = useState(false)
     useEffect(()=>{
         if(auth.user.name){
-            console.log('hello')
             getMyClasses()
         }
         
@@ -24,19 +23,21 @@ function Classes() {
     function getMyClasses(){
         Axios.get('api/myClasses')
         .then(classes=>{
-            console.log(classes.data)
             setClasses(classes.data.classes)
         })
         .catch(error=>{
        console.log(error)  
         })
+
+
+
+
     }
     function Submit(){
      
         const data = {code}
         Axios.post('api/classes/joinClass',data)
         .then(obj=>{
-            console.log(obj.data)
             message.success(`Successfully enrolled in ${obj.data.class.name}`)
             getMyClasses()})
         .catch(error=>{
@@ -44,6 +45,7 @@ function Classes() {
             console.log(error.response)   
         })
     }
+
 
 
     var cls = []
@@ -54,19 +56,7 @@ function Classes() {
        
     }
     
-    const handleCancel = () =>{
-        setVisible(false)
-    }
-    const modalOpen = () =>{
-        setVisible(true)
-    }
-    const onOk = () =>{
-        setLoading(true)
-        setTimeout(()=>{
-            setVisible(false)
-            setLoading(false)
-        },2000)
-    }
+ 
 
     return (
         <div className="classes">
@@ -88,17 +78,9 @@ function Classes() {
             </div>
             <button onClick={Submit}>Join</button>
             <br/>
-        {/* <button onClick={modalOpen}>+</button>
-            <Modal
-          title="Join a class"
-          visible={visible}
-          onOk={Submit}
-          confirmLoading={loading}
-          onCancel={handleCancel}
-        >
-            <p>Ask you teacher to give you the class code and then enter it here.</p>
-            <input className="modalInput" placeholder="Class code" onChange={(e)=>setCode(e.target.value)}/>
-            </Modal> */}
+            <h4>Or</h4>
+            <br/>
+            <button onClick={(e)=>{e.preventDefault(); }} style={{backgroundColor:"snow",color: "dodgerblue",border: "1px solid dodgerblue"}} >Create a Class</button>
             <br/>
         </div>
     )

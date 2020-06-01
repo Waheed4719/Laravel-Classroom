@@ -18,7 +18,7 @@ class FacultyAuthController extends Controller
     protected $faculty;
 
     public function __construct(){
-        $this->middleware("auth:faculty",['except'=>['login','register','refreshToken']]);
+        $this->middleware("auth:faculty",['except'=>['login','register','refreshToken','logout']]);
         $this->faculty = new Faculty;
 
     }
@@ -167,6 +167,22 @@ return null;
     return response()->json(['msg'=>$guard]);
 }
 
+
+public function logout()
+    {
+        try{
+            $user = JWTAuth::parseToken()->authenticate();
+
+            auth()->guard('faculty')->logout();
+
+            return response()->json(['message' => 'Successfully logged out']);
+        }
+        catch(Tymon\JWTAuth\Exceptions\TokenExpiredException $e){
+            return response()->json(['token_expired'], $e->getStatusCode());
+
+        }
+      
+    }
 
 
 

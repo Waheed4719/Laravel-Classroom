@@ -6,7 +6,7 @@ import prof from './../../assets/els-fattah-224428.png'
 import arrow from './../../assets/Asset3.png'
 import userAlt from './../../assets/Portrait_Placeholder.png'
 import { useSelector } from 'react-redux';
-
+import rhtml from 'react-html-parser'
 function PostCard(props) {
 
 const auth = useSelector(state=>state.auth)
@@ -61,7 +61,7 @@ if((props.user && auth.user) ){
             </div>
             <div className="content">
               {props.content?
-                <p>{props.content}</p>:
+                <p>{rhtml(props.content)}</p>:
                     <p>September 4th is the deadline to submit the hard copy of your Final Report (individually) containing 
                     Task 8 - Research Proposal (minimum 2 pages), 
                     Task 7 - Summary of 10 papers (minimum 3 pages in Latex), Task 6 - First pages only of your selected 10 papers and the key paper, 

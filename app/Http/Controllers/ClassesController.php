@@ -11,11 +11,12 @@ use App\ClassPopulation;
 use Illuminate\Support\Str;
 $guardfunc = app('App\http\Controllers\AuthController')->guard();
 
-// echo Str::random();
+
 class ClassesController extends Controller
 {
     public function index(){
-        $classes = Classes::all();
+        $id = auth('user')->user()->id;
+        $classes = Classes::where('faculty',$id)->get();
         return response()->json(['obj'=>$classes]); 
     }
 
@@ -68,8 +69,14 @@ class ClassesController extends Controller
     }
     public function delete($id){
         $class = Classes::findOrFail($id);
-        $class->delete($class);
-        return 204;
+        if(auth('user')->user()->id == $class->faculty){
+            $class->delete($class);
+            return 204;
+        }
+        else{
+            return 400;
+        }
+       
     }
 
 

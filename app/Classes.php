@@ -12,7 +12,7 @@ class Classes extends Model
     
 
     public function faculty(){
-        return $this->belongsto('App\Faculty','faculty');
+        return $this->belongsto('App\User','faculty');
     }
     public function posts(){
         return $this->hasMany('App\ClassPosts','id');

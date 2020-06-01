@@ -23,7 +23,7 @@ Route::get('classes','ClassesController@index');
 Route::get('classes/{id}','ClassesController@show');
 Route::put('classes/{id}','ClassesController@update');
 Route::delete('classes/{id}','ClassesController@delete');
-Route::post('classes','ClassesController@store')->middleware("auth:faculty");
+Route::post('classes','ClassesController@store')->middleware("auth:user");
 Route::post('classes/joinClass','ClassesController@join')->middleware("auth:user");
 
 

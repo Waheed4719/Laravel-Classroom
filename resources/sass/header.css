@@ -35,6 +35,9 @@
   color: darkslategray;
   text-decoration: none;
 }
+.header .plus {
+  font-size: 30px !important;
+}
 .header a:nth-of-type(n + 3) {
   display: block;
   float: right;
@@ -65,6 +68,12 @@
   border: none;
   margin: 0px 30px;
   cursor: pointer;
+}
+.ant-modal input {
+  width: 220px;
+  padding: 2px 15px;
+  border: 1px solid gainsboro;
+  line-height: 30px;
 }
 @media only screen and (max-width: 690px) {
   .header .avatar {
