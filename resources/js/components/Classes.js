@@ -51,8 +51,8 @@ function Classes() {
     var cls = []
     let i = 0
     if(classes){
-        
-        cls = classes.map((cls,index)=><ClassCard key={index} id={cls.id} title={cls.name} faculty={cls.faculty.name} />)
+        console.log(classes)
+        cls = classes.map((cls,index)=><ClassCard key={index} id={cls.id} title={cls.name} fac_id = {cls.faculty.id} faculty={cls.faculty.name} />)
        
     }
     

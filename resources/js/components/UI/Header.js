@@ -85,10 +85,7 @@ const menu = (
     
   </Menu>
 );
-// var pathcond = false
-// if(window.location.pathname==='/faculty'){
-//   pathcond = true;
-// }
+
 var pathcond = true
 const menu2 = (
   <Menu>
@@ -161,16 +158,22 @@ return(
           onCancel={handleCancel}
           bodyStyle={{display:"flex",flexDirection:"column"}}
         >
+
+          <div style={{display: "flex"}}>
+
+          </div>
+          <div style={{display: "flex",marginBottom: "10px",alignItems:"center"}}>
           <label htmlFor="class_code"><strong>Room Name: </strong></label>
-          <input className="ml-3 p-1" placeholder="room name" />
+          <input className="ml-3 pr-1" placeholder="Room name" />
+          </div>
+          <div style={{display: "flex",alignItems:"center"}}>
           <label htmlFor="class_code"><strong>Subject: </strong></label>
-          <input className="ml-3 p-1" placeholder="subject" />
-          
+          <input className="ml-3 pr-1" placeholder="Subject" />
+          </div>
         </Modal>
           
           
           <Link className="nl"  to='/classes'>Classes</Link>
-          {/* {fac && fac.faculty.name?<Link className="nl" to="/faculty">Fac Dashboard</Link>:<Link className="nl" to="/faculty_login">Faculty</Link>} */}
           {auth && auth.user.name?
           <Link to="#" onClick={(e)=>logOut(e)} >Logout</Link>:
           <Link to="/login" >User</Link>

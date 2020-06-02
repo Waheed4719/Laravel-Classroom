@@ -27,9 +27,10 @@ class ClassPopulationController extends Controller
         return response()->json(['classes'=>$array]);
     }
 
-    public function classPopulation(){
-        $class = ClassPopulation::where('id',13)->with('user')->get();
-        return response()->json(['class'=>$class]);
+    public function classPopulation($id){
+        $classPop = ClassPopulation::where('class_id',$id)->with('user')->get();
+        $class = Classes::where('id',$id)->get();
+        return response()->json(['classPop'=>$classPop,'class'=>$class]);
     }
 
 

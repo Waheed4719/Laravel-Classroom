@@ -23,5 +23,8 @@ class ClassPosts extends Model
     public function class(){
         return $this->belongsto('App\Classes','class_id');
     }
+    public function comments(){
+        return $this->hasMany('App\ClassComments','post_id');
+    }
 
 }

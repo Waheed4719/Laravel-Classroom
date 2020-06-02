@@ -13,18 +13,18 @@ import setAuthToken from './../utils/setAuthToken'
 import store from './../store'
 import Login from './Login'
 import Register from './Register'
-import FacLogin from './Faculty/FacLogin'
-import FacRegister from './Faculty/FacRegister'
+
 import jwtDecode from 'jwt-decode'
 import * as Types from './../actions/types'
 import Landing from './Landing'
 import {message} from 'antd'
-import Dashboard from './Faculty/Dashboard'
 import Resources from './Resources'
+import People from './People'
 import SingleClassPage from './SingleClassPage'
 import YourWork from './YourWork'
 import Axios from 'axios'
 import Interceptor from './../utils/interceptor'
+import SinglePostPage from './SinglePostPage'
 
 message.config({
   top: 70,
@@ -53,18 +53,7 @@ componentDidMount(){
   }
 
 
-const fac_token = localStorage.getItem('faculty_token')
-if(fac_token){
-  let decode = jwtDecode(fac_token)
-     
-  setAuthToken(fac_token)
-  store.dispatch({
-      type: Types.SET_FACULTY,
-      payload: {
-          faculty: decode
-      }
-  })
-}
+
 
 }
 
@@ -81,15 +70,13 @@ if(fac_token){
           <Route exact  path="/" component={Landing}/>
           <Route exact  path="/classes"  component={Classes}/>
           <Route exact  path="/classes/:class" component={SingleClassPage} />
-
+          <Route exact  path ="/classes/:class/post/:post" component={SinglePostPage} />
           <Route exact  path="/login"  component={Login}/>
           <Route exact  path="/register"  component={Register}/>
-          <Route exact  path="/resources"  component={Resources}/>
-          <Route exact  path="/workToDo" component={YourWork} />
+          <Route exact  path="/classes/:class/resources"  component={Resources}/>
+          <Route exact  path="/classes/:class/workToDo" component={YourWork} />
+          <Route exact path="/classes/:class/people" component={People} />
 
-          <Route exact  path="/faculty_login"  component={FacLogin}/>
-          <Route exact  path="/faculty_register"  component={FacRegister}/>
-          <Route exact  path="/faculty" component={Dashboard} />
         </Switch>
         </div>
       </BrowserRouter>

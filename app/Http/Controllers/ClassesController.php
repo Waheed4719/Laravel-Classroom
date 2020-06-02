@@ -16,7 +16,7 @@ class ClassesController extends Controller
 {
     public function index(){
         $id = auth('user')->user()->id;
-        $classes = Classes::where('faculty',$id)->get();
+        $classes = Classes::where('user_id',$id)->orWhere('faculty',$id)->get();
         return response()->json(['obj'=>$classes]); 
     }
 
@@ -39,10 +39,12 @@ class ClassesController extends Controller
         $code = $request->code;
         $class = Classes::where('room_code',$code)->first();
         $count = ClassPopulation::where('class_id',$class->id)->where('student_id',auth()->user()->id)->get()->count();
+
         //Checking to see if the user is already enrolled to the class or not
         if($count==1){
             return response()->json(['msg'=>'you have already enrolled in this class']);
         }
+
         //Student is being enrolled to the new Class
         $classPop = new ClassPopulation;
         $classPop->student_id = auth('user')->user()->id;
@@ -93,31 +95,29 @@ class ClassesController extends Controller
         if(auth()->guard('user')->check()){
             $newPost->user_type="user";
         }
-        else if(auth()->guard('faculty')->check()){
-            $newPost->user_type="faculty";   
-        }
-        
+      
         $newPost->save();
     
-        return response()->json(['savedPost'=>$post]);
         return response()->json(['savedPost'=>$post]);
     }
 
     public function allPosts($id){
-        $query= ClassPosts::where('class_id',$id)->with('class');
-        $posts= $query->get();
+        $query = ClassPosts::where('class_id',$id)->with('class')->with('comments');
+        $posts = $query->get();
 
         foreach ($posts as $post ) {
-            if($post->user_type == "faculty"){
-                return $query->with("faculty")->get();
-            }
-            else{
+            
                 return $query->with("user")->get();
-            }
+            
         }
     
             
     } 
+
+    public function getSinglePost($id){
+        $query = ClassPosts::where('id',$id)->with("comments")->first();
+        return $query;
+    }
 
 
 }

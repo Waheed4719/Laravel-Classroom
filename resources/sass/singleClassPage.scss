@@ -8,14 +8,21 @@
     flex-direction: column;
 
     .section{
-        p{
-            color: darkslateblue;
-            font-weight: bold;
-            padding-left: 10px;
-            padding-right: 10px;
-            cursor: pointer;
+        a{
+            
+            p{
+                color: darkslateblue;
+                font-weight: bold;
+                padding-left: 10px;
+                padding-right: 10px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+            &:hover{
+                text-decoration:none ;
+            }
         }
-        p:nth-child(1){
+        .activeSection{
             color: cornflowerblue;
             border-bottom: medium solid dodgerblue;
         }

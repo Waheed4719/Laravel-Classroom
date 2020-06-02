@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import './../../sass/SingleClassPage.scss'
-import scape from './../assets/Img_1.png'
-import prof from './../assets/els-fattah-224428.png'
-import arrow from './../assets/Asset3.png'
 import backdrop from './../assets/backdrop.jpg'
 import PostCard from './Mini-Components/PostCard'
 import TodoAside from './Mini-Components/TodoAside'
@@ -11,6 +8,7 @@ import PostBar from './Mini-Components/PostBar'
 import caret from './../assets/caret.png'
 import Axios from 'axios'
 import { useSelector } from 'react-redux'
+
 
 function SingleClassPage(props) {
     const [classData, setClassData] = useState({})
@@ -26,15 +24,12 @@ function SingleClassPage(props) {
         var coverImage = document.querySelector('.coverImage')
         caret.addEventListener('click',()=>{
             if(flag===false){
-                // roomInfo.style.transform = "translateY(0%)"
                 roomInfo.style.display= "flex"
-                
                 coverImage.style.borderBottomLeftRadius="0px"
                 coverImage.style.borderBottomRightRadius="0px"
                 flag = true
             }
             else{
-                // roomInfo.style.transform = "translateY(-100%)"
                 roomInfo.style.display= "none"
                 coverImage.style.borderBottomLeftRadius=""
                 coverImage.style.borderBottomRightRadius=""
@@ -75,7 +70,7 @@ function SingleClassPage(props) {
 
     useEffect(()=>{
         if(classData.faculty && auth.user.sub === classData.faculty.id){
-            console.log("you are faculty")
+
             setIsFaculty(true)
         }
     },[classData, auth.user])
@@ -86,7 +81,7 @@ function SingleClassPage(props) {
 
     if(classPosts){
       
-        cp=classPosts.map((clsp,index)=><PostCard key={index} content={clsp.post}  faculty={clsp.faculty} user={clsp.user}   />)
+        cp=classPosts.map((clsp,index)=><PostCard key={index}  content={clsp.post} comments={clsp.comments} classId ={props.match.params.class} id={clsp.id}  faculty={clsp.faculty} user={clsp.user}   />)
     }
 
     
@@ -96,7 +91,9 @@ function SingleClassPage(props) {
         <div className="singleClass">
             <br/>
             <div className="section" style={{display:"flex",justifyContent:"center"}}>
-                <p className="mx-2"><Link to={'/classes/'+props.match.params.class}>Stream</Link></p> | <p className="mx-2">Resources</p> | <p className="mx-2">People</p>
+            <Link to={'/classes/'+props.match.params.class}><p className="mx-2 activeSection">Stream</p></Link> |
+            <Link to={'/classes/'+props.match.params.class + '/resources'}> <p className="mx-2">Resources</p></Link> |
+            <Link to={'/classes/'+props.match.params.class + '/people'}>    <p className="mx-2">People</p></Link>
             </div>
             <div className="coverImage" style={{backgroundImage:"url("+backdrop+")"}}>  
             <div className="title">

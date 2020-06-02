@@ -45,12 +45,7 @@ function PostBarToggler(){
     }
     
     function close(){
-        var postBar = document.querySelector('.postBar')
-        var placeholder = document.querySelector('.ph')
-        var avatar = document.querySelector('.av')
-        var textArea = document.querySelector('.TA')
-        var btns = document.querySelector('.btns')
-        var antBtn = document.querySelector('.ant-btn')
+       
 
         placeholder.style.display="block"
         avatar.style.display="block"
@@ -67,7 +62,14 @@ function PostBarToggler(){
         if(event.target.closest('.postBar') && (!event.target.closest('.cancel'))) {
             open()
         }
+        else if(event.target.closest('.tox-dialog')){
+            //Do nothing
+        }
         else{
+            if(document.querySelector('.tox-tbtn.tox-tbtn--enabled')){
+                document.querySelector('.tox-tbtn.tox-tbtn--enabled').click()
+            }
+            
             close()
         }
     })
@@ -103,9 +105,6 @@ function PostBarToggler(){
         setPost(content)
       }
     
-
-
-
     const submitHandler=(e)=>{
           e.preventDefault()
           const form = new FormData()
@@ -151,8 +150,8 @@ function PostBarToggler(){
           
             <div className="btns">
             <Dropdown overlay={menu} trigger={['click']}>
-            <a onClick={e => e.preventDefault()} className="btn-outline" style={{display:"flex",alignItems:"center",justifyContent:"center"}} >
-                <PaperClipOutlined style={{  padding:'0px 3px' ,fontSize: '16px', color: '#08c' }} />Add</a>
+            <a onClick={e => e.preventDefault()} className="btn-outline" style={{width: "160px",display:"flex",alignItems:"center",justifyContent:"center"}} >
+                <PaperClipOutlined style={{  padding:'0px 3px' ,fontSize: '16px', color: '#08c' }} />Upload Resources</a>
             </Dropdown>
                 <div className="postCancelGrp">
                 <a className="btn-outline cancel" >Cancel</a><a onClick={(e)=>submitHandler(e)} className="btn-outline" >Post</a>

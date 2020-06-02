@@ -3,16 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+
 
 
 // Users
@@ -28,18 +19,13 @@ Route::post('classes/joinClass','ClassesController@join')->middleware("auth:user
 
 
 // Class actions
-
-
-if(auth()->guard('faculty')->check()){
-    Route::post('class/makePost','ClassesController@makePost')->middleware("auth:faculty");
-    
-}
-else{
-    Route::post('class/makePost','ClassesController@makePost')->middleware(["auth:user"]);
-}
-
+Route::post('class/makePost','ClassesController@makePost')->middleware(["auth:user"]);
 Route::get('class/allPosts/{id}', 'ClassesController@allPosts');
+Route::get('class/post/{id}','ClassesController@getSinglePost');
 
+
+//Population
+Route::get('classes/{id}/getPeople','ClassPopulationController@classPopulation');
 
 //Auth Controller
 Route::post('login','AuthController@login');
@@ -50,12 +36,14 @@ Route::get('guard','AuthController@guard');
 Route::get('/refreshToken','AuthController@refreshToken');
 
 
-// Faculty Controller
-Route::post('faculty/register','FacultyAuthController@register');
-Route::post('faculty/login','FacultyAuthController@login');
-Route::get('faculty/getFaculty','FacultyAuthController@getAuthenticatedUser');
-Route::get('faculty/guard','FacultyAuthController@guard');
-Route::get('faculty/refreshToken','FacultyAuthController@refreshToken');
+//Comment Controller
+Route::post('postComment','CommentController@postComment')->middleware("auth:user");
+Route::get('getComments','CommentController@getComments');
+
+
+
+
+
 
 Route::get('image-upload', 'imageUpload@imageUpload')->name('image.upload');
 Route::post('image-upload', 'imageUpload@imageUploadPost')->name('image.upload.post');
@@ -63,5 +51,5 @@ Route::post('image-upload', 'imageUpload@imageUploadPost')->name('image.upload.p
 
 //ClassPopulation
 Route::get('myClasses','ClassPopulationController@getUsersClasses');
-Route::get('classPopulation','ClassPopulationController@classPopulation');
+Route::get('classPopulation/{id}','ClassPopulationController@classPopulation');
 

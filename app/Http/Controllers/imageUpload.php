@@ -24,7 +24,7 @@ class imageUpload extends Controller
     public function imageUploadPost(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10048',
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg,mp4,pdf|max:10048',
         ]);
   
         $imageName = time().'.'.$request->image->getClientOriginalName();  

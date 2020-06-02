@@ -1,0 +1,115 @@
+
+.main{
+    padding: 10px 5%;
+    width: 70%;
+    max-width: 100%;
+    margin: auto;
+    .post{
+
+        .info{
+            min-height: 100px;
+            width: 100%;
+            border-radius: 10px;
+            border-bottom: 1px solid #dadce0;
+            // border-bottom: 1px solid royalblue;
+            display:flex;
+            flex-direction: column;
+            .profile{
+                display:flex;
+                flex-direction: row;
+                padding: 15px 24px 0px 24px;
+                .avatar{
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    vertical-align: middle;
+                    border-radius: 1000px;
+                    background-size: contain;
+                    border: 2px solid royalblue;
+                    // border: 1px solid gainsboro;
+                }
+                .nameDate{
+                    height: 40px;
+                    padding-left: 15px;
+                    p{
+                        margin:0px;
+                        line-height: 20px;
+                        font-size: 14px;
+                        text-align: left;
+                        
+                    }
+                    p:nth-of-type(2){
+                        font-family: Roboto,Open sans, Montserrat;
+                        color: lightslategray;
+                        font-size: 12px;
+                    }
+                }
+                .menuIcon{
+                    display:flex;
+                    flex-direction: column;
+                    justify-content:center;
+                    margin-left: auto;
+                    padding: 5px 10px;
+                    border-radius: 1000px;
+                    &:hover{
+                        background-color: gainsboro;
+                        border: 1px solid gainsboro;
+                        border-radius: 1000px;
+                    }
+                    
+                    div,&:before, &:after{
+                        display:block;
+                        content: "";
+                        margin: 2px;
+                        width: 4px;
+                        height:4px;
+                        border-radius: 1000px;
+                        background-color: darkslategray;
+                    }
+                }
+    
+            }
+            .content{
+                padding: 12px 24px;
+                max-width: 100%;
+                a{
+                    text-decoration: none;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+                
+                
+                p{
+                    line-height: 20px;
+                    font-size: 14px;
+                    text-align: left;
+                    margin-bottom: 5px;
+                    span{
+                        max-width: 100%;
+                        word-break: break-all;
+                    }
+                    img{
+                        max-width: 100%;
+                        height: auto;
+                    }    
+                }
+               
+            }
+           
+        }
+        border: 1px solid lavender;
+        background: snow;
+        margin: auto;
+        padding: 10px 20px;
+    }
+}
+
+
+@media only screen and (max-width: 1200px){
+    .main{
+        width: 90%;
+        max-width: 100%;
+        min-width: 360px;
+    }
+}

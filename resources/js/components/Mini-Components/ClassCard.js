@@ -1,12 +1,14 @@
 import React,{useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import './../../../sass/classcard.scss'
-import scape from './../../assets/Img_1.png'
 import backdrop from './../../assets/backdrop.jpg'
 import {Popover} from 'antd'
-import {FolderOutlined, LaptopOutlined } from '@ant-design/icons'
+import {FolderOutlined, LaptopOutlined, FrownFilled } from '@ant-design/icons'
+import {useSelector} from 'react-redux'
 
 function ClassCard(props) {
+
+const auth = useSelector(state=>state.auth)
     return (
         <div className="classCard" >
            <div className="cover" style={{backgroundImage:"url("+backdrop+")"}}>
@@ -16,18 +18,17 @@ function ClassCard(props) {
                 <div className="avatar" ></div>
            </div>
            <div className="desc">
-
            </div>
            <div className="resc">
 
                <Popover  content="Your work">
-               <Link to="/workToDo"><span className="r-icon">
+               <Link to={"/classes/"+props.id+"/workToDo"}><span className="r-icon">
                <LaptopOutlined />
                </span></Link>
                </Popover>
 
                <Popover  content="Resources">
-               <Link to="/resources"><span className="r-icon">
+               <Link to={"/classes/"+props.id+"/resources"}><span className="r-icon">
                <FolderOutlined />
                </span></Link>
                </Popover>
