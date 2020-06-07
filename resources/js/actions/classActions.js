@@ -29,3 +29,25 @@ export const create_class = (classdata,history) => dispatch =>{
 
 }
 
+
+
+export const getMyClasses = () => async(dispatch) =>{
+    try {
+        const res = await Axios.get('/api/myClasses')
+        dispatch({
+            type: Types.GET_MY_CLASSES,
+            payload: {
+                myClasses : res.data.classes
+            }
+        })
+    } catch (error) {
+        console.log(error)
+        dispatch({
+            type: Types.CLASS_ERRORS,
+            payload: {
+                error: error.response.data
+            }
+        })
+    }
+}
+

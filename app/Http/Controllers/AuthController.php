@@ -26,7 +26,7 @@ public function register(Request $request)
     $validator = Validator::make($request->all(),
     [
         'name' => 'required|string',
-        'email' => 'required|string',
+        'email' => 'required|email',
         'password' => 'required|string|min:6',
     ]);
 
@@ -66,7 +66,7 @@ public function login (Request $request)
 {
     $validator = Validator::make($request->only('email','password')
     ,[
-        'email' => 'required|string',
+        'email' => 'required|email',
         'password' => 'required|string|min:6',
     ]);
 
@@ -85,7 +85,7 @@ public function login (Request $request)
         return response()->json([
             'success'=>false,
             'message'=>'invalid email or password'
-        ]);
+        ],400);
     }
     $user = auth('user')->user();
     

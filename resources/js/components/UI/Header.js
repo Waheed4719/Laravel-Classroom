@@ -6,7 +6,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import {Menu, Dropdown, Modal} from 'antd'
 import { DownOutlined } from '@ant-design/icons';
 import { logout } from '../../actions/authActions'
-import Sidebar from './../Sidebar'
+import Sidebar from './Sidebar'
 import prof from './../../assets/els-fattah-224428.png'
 
 function Header (){
@@ -56,8 +56,8 @@ useEffect(() => {
  for(i=0;i<atag.length;i++){
    
    if(atag[i].pathname === window.location.pathname){
-    atag[i].style.color = "#2b73d5" 
-    atag[i].style.borderBottom = "4px solid #1967d2"
+    atag[i].style.color = "#FF5353" 
+    atag[i].style.borderBottom = "4px solid #FF5353"
    }
 
    else{
@@ -158,18 +158,16 @@ return(
           onCancel={handleCancel}
           bodyStyle={{display:"flex",flexDirection:"column"}}
         >
-
-          <div style={{display: "flex"}}>
-
-          </div>
-          <div style={{display: "flex",marginBottom: "10px",alignItems:"center"}}>
-          <label htmlFor="class_code"><strong>Room Name: </strong></label>
+         
+          <div style={{display: "flex",marginBottom: "10px",alignItems:"center",justifyContent:"center"}}>
+          <label  htmlFor="class_code"><strong>Room Name: </strong></label>
           <input className="ml-3 pr-1" placeholder="Room name" />
           </div>
-          <div style={{display: "flex",alignItems:"center"}}>
-          <label htmlFor="class_code"><strong>Subject: </strong></label>
+          <div style={{display: "flex",alignItems:"center",justifyContent:"center"}}>
+          <label style={{marginBottom:"0px"}} htmlFor="class_code"><strong>Subject: </strong></label>
           <input className="ml-3 pr-1" placeholder="Subject" />
           </div>
+         
         </Modal>
           
           

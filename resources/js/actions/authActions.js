@@ -10,39 +10,40 @@ export const login = (user,history) => dispatch => {
 
     Axios.post('/api/login',user)
     .then(user=>{
-        localStorage.clear()
-        try {
-            dispatch({
-                type:Types.LOGOUT_FACULTY
-            })
-        } catch (error) {
-            console.log(error)
-        }
         
-        let decode = jwtDecode(user.data.token)
-       localStorage.setItem('auth_token','Bearer ' + user.data.token)
-
-        setAuthToken('Bearer ' + user.data.token)
-        dispatch({
-            type: Types.SET_USER,
-            payload: {
-                user:decode
-            }
-        })
-        message.success('Successfully Logged in')
+        localStorage.removeItem('auth_token')
+    
+        
+            let decode = jwtDecode(user.data.token)
+            localStorage.setItem('auth_token','Bearer ' + user.data.token)
+     
+             setAuthToken('Bearer ' + user.data.token)
+             dispatch({
+                 type: Types.SET_USER,
+                 payload: {
+                     user:decode
+                 }
+             })
+             message.success('Successfully Logged in')
+        
+       
+        
         
         
     })
     .catch(error=>{
         if(error){
-            console.log(error)
-            console.log(error.response.data)
-            dispatch({
-                type: Types.USERS_ERROR,
-                payload: {
-                    error: error.response.data
-                }
-            })
+            console.log("error:",error)
+            console.log("error2:",error.response.data)
+            if(error.response.data){
+                dispatch({
+                    type: Types.USERS_ERROR,
+                    payload: {
+                        error: error.response.data
+                    }
+                })
+            }
+          
         }
         
         

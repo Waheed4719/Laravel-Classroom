@@ -15,6 +15,8 @@ function SingleClassPage(props) {
     const [classPosts, setClassPosts] = useState([])
     const [isFaculty, setIsFaculty] = useState(false)
     const auth = useSelector(state=>state.auth)
+    // var notif = document.getElementsByClassName('.tox-icon')
+    var notif = document.querySelector('.mce-notification')
 
     var flag = false
 
@@ -61,12 +63,15 @@ function SingleClassPage(props) {
 
 
     useEffect(()=>{
+      
         roomInfoToggle()
         getClass()
         classPostsCall()
       
        
-    },[])
+    },[props.match.params.class])
+
+    
 
     useEffect(()=>{
         if(classData.faculty && auth.user.sub === classData.faculty.id){
@@ -91,8 +96,8 @@ function SingleClassPage(props) {
         <div className="singleClass">
             <br/>
             <div className="section" style={{display:"flex",justifyContent:"center"}}>
-            <Link to={'/classes/'+props.match.params.class}><p className="mx-2 activeSection">Stream</p></Link> |
-            <Link to={'/classes/'+props.match.params.class + '/resources'}> <p className="mx-2">Resources</p></Link> |
+            <Link to={'/classes/'+props.match.params.class}><p className="mx-2 activeSection">Stream</p></Link> <span>|</span>
+            <Link to={'/classes/'+props.match.params.class + '/resources'}> <p className="mx-2">Resources</p></Link> <span>|</span>
             <Link to={'/classes/'+props.match.params.class + '/people'}>    <p className="mx-2">People</p></Link>
             </div>
             <div className="coverImage" style={{backgroundImage:"url("+backdrop+")"}}>  

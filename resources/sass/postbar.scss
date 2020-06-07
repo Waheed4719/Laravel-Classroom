@@ -2,9 +2,10 @@
     width: 100%;
     min-height: 70px;
     max-height: 100%;
-    border: 1px solid gainsboro;
+    // border: 1px solid gainsboro;
     // border: 1px solid royalblue;
-    border-radius: 10px;
+    background-color: #3F4355;
+    border-radius: 35px;
     max-width: 100%;
     min-width: 100%;
     margin: 20px 0px 10px 0px;
@@ -13,15 +14,18 @@
     align-items: center;
     padding: 10px 24px;
     transition:  all 0.5s ease-in-out;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
     p{
         text-align: left;
-        color: lightslategray;
+        color: #E5E2E2;
+        opacity: 60%;
         line-height: 40px;
         margin:0px;
         margin-left: 24px;
         width: 100%;
         &:hover{
-            color: royalblue;
+            color: #FF5353;
+            cursor: pointer;
         }
     }
     .avatar{
@@ -32,35 +36,10 @@
         border-radius: 1000px;
         background-size: contain;
         background-repeat: no-repeat;
-        border: 1px solid gainsboro;
+        // border: 1px solid gainsboro;
         
     }
-    textarea{
-        display:none;
-        border: none;
-        width: 92%;
-        height: 100px;
-        max-height: auto;
-        min-height: 24px;
-        transition: all 0.5s ease-in-out;
-        max-height: auto;
-        box-sizing: content-box;
-        overflow-y: visible;
-        overflow-x: hidden;
-        resize: none;
-        word-wrap: break-word;
-        white-space: pre-wrap;
-        &:focus{
-            // max-width:90%;
-            border: none;
-            
-            padding: 24px 24px;
-            outline: none;
-            color: black;
-            background-color: #f8f9fa;
-        }
-       
-    }
+
     .btns{
         display:none;
         flex-direction: row;
@@ -86,7 +65,8 @@
             line-height: 35px;
             width: 70px;
             margin: 5px;
-            border: 1px solid gainsboro;
+            // border: 1px solid gainsboro;
+            border: 1px solid #FF5353;
             border-radius: 6px;
     
         }
@@ -98,5 +78,8 @@
 @media only screen and (max-width:450px){
 .postBar{
     padding-top: 15px !important;
+    p{
+        font-size: 12px;
+    }
 }
 }

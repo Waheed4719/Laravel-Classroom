@@ -98,6 +98,7 @@
   max-width: 100%;
   flex-wrap: wrap;
 }
+.mce-notification {display: none !important;}
 @media only screen and (max-width: 700px) {
   .coverImage {
     margin-top: 0px !important;

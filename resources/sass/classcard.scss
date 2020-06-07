@@ -7,7 +7,8 @@
     margin:auto;
     border-radius: 9px;
     margin: 20px auto;
-    
+    background-color: #3F4355;
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.16);
     .cover{
         // background-size: cover;
         background-repeat: no-repeat;
@@ -55,13 +56,12 @@
     
     .desc{
         height: 150px;
-        border: 1px solid gainsboro;
+        // border: 1px solid gainsboro;
         border-bottom:none;
         border-top:none;
     }
     .resc{
         height: 50px;
-        border: 1px solid #e1e3e6;
         border-bottom-left-radius: 9px;
         border-bottom-right-radius: 9px;
         display:flex;
@@ -80,14 +80,14 @@
             align-items: center;
             text-align: center;
             line-height: 100%;
+            color: whitesmoke;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
             &:hover{
                 border-radius: 1000px;
-                background-color: lavenderblush;
+                background-color: #FF5353;
             }
             svg{
-                
                 margin:auto;
             }
         }

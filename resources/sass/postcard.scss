@@ -1,17 +1,19 @@
 .post{
     display: flex;
     flex-direction: column;
-    border: 1px solid #dadce0;
+    // border: 1px solid #dadce0;
+    border-radius: 35px;
     // border: 1px solid royalblue;
+    background-color: #3F4355;
     width: 100%;
     max-width: 100%;
     margin: 20px 0px;
-    border-radius: 10px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
     .info{
         min-height: 100px;
         width: 100%;
         border-radius: 10px;
-        border-bottom: 1px solid #dadce0;
+        // border-bottom: 1px solid #dadce0;
         // border-bottom: 1px solid royalblue;
         display:flex;
         flex-direction: column;
@@ -26,7 +28,7 @@
                 vertical-align: middle;
                 border-radius: 1000px;
                 background-size: contain;
-                border: 2px solid royalblue;
+                // border: 2px solid royalblue;
                 // border: 1px solid gainsboro;
             }
             .nameDate{
@@ -37,6 +39,7 @@
                     line-height: 20px;
                     font-size: 14px;
                     text-align: left;
+                    color: white;
                     
                 }
                 p:nth-of-type(2){
@@ -98,8 +101,10 @@
     .inputSection{
         width: 100%;
         height: 80px;
-        border-radius: 10px;
-        border-bottom: 1px solid lavender;
+        border-radius: 35px;
+        display: none;
+        transition: 0.4s linear ease-in-out;
+        // border-bottom: 1px solid lavender;
         .innerInput{
             height:100%;
             display: flex;
@@ -107,6 +112,8 @@
             justify-content: flex-start;
             align-items: center;
             padding: 12px 24px;
+            background-color: #3F4355;
+            border-radius: 35px;
             .avatar {
                 height:40px;
                 width: 40px;
@@ -114,11 +121,10 @@
                 line-height: 40px;
                 vertical-align: middle;
                 border-radius: 1000px;
-                border: 1px solid gainsboro;
             }
             .inputHolder{
                 border-radius: 1000px;
-                border: 1px solid gainsboro;
+                border: 1px solid #FF5353;
                 // border: 1px solid royalblue;
                 padding: 9px 10px 9px 16px;
                 height: 40px;
@@ -133,11 +139,17 @@
                     border: none;
                     vertical-align: middle;
                     line-height: 20px;
+                    background-color: #3F4355;
+                    &::placeholder{
+                        color: white;
+                        opacity: 0.6;
+                    }
                     &:focus{
                         border: none;
                         outline: none;
                     }
                 }
+               
                 .arrow{
                     height: 32px;
                     width: 32px;
@@ -148,7 +160,7 @@
                     margin-right: 0px;
                     background-position: center;
                     &:hover{
-                        background-color:gainsboro;
+                        background-color:transparent;
                         cursor: pointer
                     }
                 }

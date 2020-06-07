@@ -12,6 +12,14 @@ const classReducer = (state=init,action) =>{
             }
             
         }
+
+        case Types.GET_MY_CLASSES: {
+            return{
+                myClasses: action.payload.myClasses,
+                errors:{}
+            }
+        }
+
         case Types.CLASS_ERRORS: {
             return {
                 ...state,

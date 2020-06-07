@@ -9,8 +9,7 @@
     width: 340px;
     top:0;
     // background-color: #1d4187;
-    background-color: white;
-    border-right: 1px solid gainsboro;
+    background-color: #3F4355;
     // background-color: darkslategray;
     transform: translateX(-120%);
     transition: transform .6s ease-in-out;
@@ -29,8 +28,7 @@
             &::after{
                 display:block;
                 content: '';
-                // background-color: white;
-                background-color: darkslategray;
+                background-color: white;
                 width: 25px;
                 height:2px;
                 margin: 5px;
@@ -89,8 +87,10 @@
         padding: 15px 5%;
         p{
             // color: white;
-            color: darkslategray;
+            color: #fff;
+            font-weight: bold;
             letter-spacing: 5px;
+            font-size: 11px;
             text-transform: uppercase;
         }
         ul{
@@ -99,9 +99,14 @@
             li{
                 width:100%;
                 padding: 10px 0px;
-                // color: white;
-                color: darkslategray;
+                color: #fff;
+                font-size: 13px;
                 font-weight: 500;
+                text-decoration: none;
+                a{
+                    text-decoration: none;
+                    color: #fff
+                }
             }
         }
     }

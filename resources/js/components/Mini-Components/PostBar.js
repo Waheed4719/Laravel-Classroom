@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './../../../sass/postbar.scss'
 import prof from './../../assets/els-fattah-224428.png'
 import {PaperClipOutlined, UploadOutlined} from '@ant-design/icons'
@@ -13,6 +13,7 @@ function PostBar(props) {
     const [img, setImg] = useState({})
     var edit = document.querySelector('.editor')
     var placeholder = document.querySelector('.ph')
+    const EditorRef = useRef()
 
     
 
@@ -80,9 +81,10 @@ function PostBarToggler(){
 
 }
 
-    useEffect(()=>{
+    useEffect(()=>{      
         PostBarToggler()
     },[])
+  
 
    
 
@@ -122,17 +124,19 @@ function PostBarToggler(){
       }
 
     return (
-        <div className="postBar">
+        <div className="postBar" >
       
             <div className='avatar av'  style={{backgroundImage: "url("+ prof +")"}}></div>
              <p className="ph">Share something with your class</p> 
            <div className="editor">
            <Editor
-            apiKey="ovfon26lvler8sv8l1motzvleku3ydjmmfi3vdhg20zs7va2"
+            ref={EditorRef}
+            apiKey='ovfon26lvler8sv8l1motzvleku3ydjmmfi3vdhg20zs7va2'
             init={{
+            skin: (window.matchMedia("(prefers-color-scheme: dark)").matches ? "oxide-dark" : ""),
+            content_css: (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : ""),
             height: 200,
             width: "100%",
-            placeholder: "Ask a question or post an update...",
             menubar: false,
             plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
@@ -150,8 +154,8 @@ function PostBarToggler(){
           
             <div className="btns">
             <Dropdown overlay={menu} trigger={['click']}>
-            <a onClick={e => e.preventDefault()} className="btn-outline" style={{width: "160px",display:"flex",alignItems:"center",justifyContent:"center"}} >
-                <PaperClipOutlined style={{  padding:'0px 3px' ,fontSize: '16px', color: '#08c' }} />Upload Resources</a>
+            <a onClick={e => e.preventDefault()} className="btn-outline" style={{width: "100px",display:"flex",alignItems:"center",justifyContent:"center"}} >
+                Upload</a>
             </Dropdown>
                 <div className="postCancelGrp">
                 <a className="btn-outline cancel" >Cancel</a><a onClick={(e)=>submitHandler(e)} className="btn-outline" >Post</a>

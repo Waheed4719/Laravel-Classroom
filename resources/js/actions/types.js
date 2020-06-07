@@ -9,4 +9,5 @@ export const CREATE_FACULTY = "CREATE_FACULTY"
 export const LOGOUT_FACULTY = "LOGOUT_FACULTY"
 
 export const CREATE_CLASS = "CREATE_CLASS"
+export const GET_MY_CLASSES = "GET_MY_CLASSES"
 export const CLASS_ERRORS = "CLASS_ERRORS"

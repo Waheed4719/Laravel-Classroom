@@ -16,8 +16,14 @@ class ClassesController extends Controller
 {
     public function index(){
         $id = auth('user')->user()->id;
-        $classes = Classes::where('user_id',$id)->orWhere('faculty',$id)->get();
-        return response()->json(['obj'=>$classes]); 
+        $classes = Classes::orWhere('faculty',$id)->get();
+        if($classes !== null){
+
+            return response()->json(['obj'=>$classes]); 
+        }
+        else{
+            return 404;
+        }
     }
 
     public function store(Request $request){

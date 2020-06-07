@@ -17,8 +17,6 @@ const [username, setUsername] = useState('')
 const [password, setPassword] = useState('')
 const [errors,setErrors] = useState(auth.errors)
 
-// const [user, setUser] = useState({})
-// const [flag, setFlag] = useState(false)
 
 
 
@@ -26,11 +24,9 @@ useEffect(()=>{
 
     var nameInput = document.querySelector('.userInput')
     var passInput = document.querySelector('.password')
-    console.log(nameInput,passInput)
     nameInput.addEventListener('keyup',()=>{
-        console.log(nameInput.value)
+        
         if(nameInput.value === ''){
-          
             nameInput.style.border = "1px solid red"
             nameInput.parentElement.querySelector('p').innerHTML = " email field cannot be empty"
             nameInput.parentElement.querySelector('p').style.visibility = "visible"
@@ -68,7 +64,6 @@ useEffect(() => {
     var passInput = document.querySelector('.password')
         if(auth.errors.message){
             if(auth.errors.message.email){
-                console.log(auth.errors.message.email)
                 nameInput.parentElement.querySelector('p').innerHTML = auth.errors.message.email
                 nameInput.parentElement.querySelector('p').style.visibility = "visible"
             }
@@ -76,7 +71,13 @@ useEffect(() => {
                 passInput.parentElement.querySelector('p').innerHTML = auth.errors.message.password
                 passInput.parentElement.querySelector('p').style.visibility = "visible"
             }
+            if(auth.errors.message === 'invalid email or password'){
+                nameInput.parentElement.querySelector('p').innerHTML = auth.errors.message
+                nameInput.parentElement.querySelector('p').style.visibility = "visible"
+            }
         }
+
+    
     
 }, [auth.errors])
 

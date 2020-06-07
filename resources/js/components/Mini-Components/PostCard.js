@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import './../../../sass/postcard.scss'
 import { Menu, Dropdown } from 'antd';
 import {Link} from 'react-router-dom'
@@ -15,6 +15,8 @@ function PostCard(props) {
 
 const auth = useSelector(state=>state.auth)
 const [comment,setComment] = useState('');
+const inputRef= useRef()
+const trigger = useRef()
 
 var menuItem = ''
 if((props.user && auth.user) ){
@@ -23,6 +25,15 @@ if((props.user && auth.user) ){
       menuItem = <Menu.Item key="2"><a href="#">Delete</a></Menu.Item>
     }
   
+}
+
+function triggerOnClick(){
+  if((inputRef.current.style.display === "none" || inputRef.current.style.display === "") && inputRef.current.id == props.id ){
+    inputRef.current.style.display = "block"
+  }
+  else{
+    inputRef.current.style.display = "none"
+  }
 }
 
     const menu = (
@@ -44,12 +55,10 @@ if((props.user && auth.user) ){
         const user_id = auth.user.sub;
         const post_id = props.id;
         const form = {class_id,user_id,post_id,comment}
-        console.log(form)
         if(comment){
           Axios.post('/api/postComment',form)
           .then(savedComment => {
-            message.success("Successfully Posted")
-            console.log(savedComment)})
+            message.success("Successfully Posted")})
           .catch(error=> console.log(error))
         }
       }
@@ -75,11 +84,15 @@ if((props.user && auth.user) ){
               {props.content &&
                 <div style={{textAlign:'left'}}>{rhtml(props.content)}</div>}
                 <br/>
-                <Link to={'/classes/'+props.classId+'/post/'+props.id}><p><small><FontAwesomeIcon icon={['fas','comment']} size="lg" className="mx-2 "/>{props.comments.length} comments</small></p></Link>
+                <div style={{display: 'flex',alignItems:'center'}}>
+                <Link style={{color: "#f0f0f0"}} to={'/classes/'+props.classId+'/post/'+props.id}><small><FontAwesomeIcon icon={['fas','comment']} color="gray" size="lg" className="mx-2 "/>{props.comments.length} comments</small></Link>
+                <a style={{fontSize: '11.52px',marginLeft:'20px'}} onClick={triggerOnClick} ref={trigger}>Post a comment</a>
+                </div>
+                
             </div>
             
         </div>
-        <div className="inputSection">
+        <div className="inputSection" ref={inputRef} id = {props.id}>
 
             <div className="innerInput">
             <div className="avatar" style={{backgroundImage: "url("+prof+")"}}></div>

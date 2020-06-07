@@ -9,7 +9,6 @@ function Resources(props) {
     useEffect(()=>{
      var rawUrl = window.location.pathname;
      var splitUrl = rawUrl.split('/');
-     console.log(splitUrl[2]);   
     })
     return (
         <div className="singleClass">

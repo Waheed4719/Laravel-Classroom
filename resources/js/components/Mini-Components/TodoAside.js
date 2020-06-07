@@ -5,7 +5,7 @@ function TodoAside() {
     return (
         <div className="todoAside">
             <h5>To do</h5>
-            <hr/>
+            <hr color="#FF5353"/>
             <p>No work due!</p>
         </div>
     )

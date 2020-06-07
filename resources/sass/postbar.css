@@ -85,6 +85,7 @@
   border: 1px solid gainsboro;
   border-radius: 6px;
 }
+.mce-notification {display: none !important};
 @media only screen and (max-width: 450px) {
   .postBar {
     padding-top: 15px !important;

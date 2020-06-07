@@ -13,7 +13,7 @@ import setAuthToken from './../utils/setAuthToken'
 import store from './../store'
 import Login from './Login'
 import Register from './Register'
-
+import Sidebar from './UI/Sidebar'
 import jwtDecode from 'jwt-decode'
 import * as Types from './../actions/types'
 import Landing from './Landing'
@@ -25,6 +25,7 @@ import YourWork from './YourWork'
 import Axios from 'axios'
 import Interceptor from './../utils/interceptor'
 import SinglePostPage from './SinglePostPage'
+import CreateClass from './CreateClass'
 
 message.config({
   top: 70,
@@ -65,17 +66,18 @@ componentDidMount(){
       <BrowserRouter>
         <div >
           <Header/>
-          {/* <SideBar/> */}
+          <Sidebar/>
         <Switch>
           <Route exact  path="/" component={Landing}/>
           <Route exact  path="/classes"  component={Classes}/>
+          <Route exact  path="/classes/createAClass" component={CreateClass} />
           <Route exact  path="/classes/:class" component={SingleClassPage} />
           <Route exact  path ="/classes/:class/post/:post" component={SinglePostPage} />
           <Route exact  path="/login"  component={Login}/>
           <Route exact  path="/register"  component={Register}/>
           <Route exact  path="/classes/:class/resources"  component={Resources}/>
           <Route exact  path="/classes/:class/workToDo" component={YourWork} />
-          <Route exact path="/classes/:class/people" component={People} />
+          <Route exact  path="/classes/:class/people" component={People} />
 
         </Switch>
         </div>

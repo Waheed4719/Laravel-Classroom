@@ -30,7 +30,7 @@
         width: 300px;
         transition: all .5s ease-in-out;
         &:focus{
-            border: 1px solid dodgerblue;
+            border: 1px solid dodgerblue !important;
         }
        
         

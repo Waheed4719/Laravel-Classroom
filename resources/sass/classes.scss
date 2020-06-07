@@ -19,12 +19,21 @@
             
             width: 220px;
             padding: 2px 15px;
-            border: 1px solid gainsboro;
             line-height: 30px;
+            transition: all .2s ease-in-out;
+            &::placeholder{
+                color: gray
+            }
+            &:focus{
+                transition: all .2s ease-in-out;
+                border: 1px solid #FF5353;
+                outline: 1px solid #FF5353;
+            }
+           
         }
     
     }
-    button{
+    button,.button{
         border: none;
         margin: auto;
         display: block;
@@ -32,12 +41,15 @@
         height: 35px;
         line-height: 35px;
         color: white;
+        font-weight: 500;
         padding: 0px;
-        background-color:#1890ff;
+        background-color:#FF5353;
         transition: all .2s ease-in-out;
+        text-decoration: none;
         &:hover{
             color: white;
-            background-color: #58adfb;
+            background-color: #FF5353;
+            transform: scale(1.05,1.05);
         }
     }
     .clss{
